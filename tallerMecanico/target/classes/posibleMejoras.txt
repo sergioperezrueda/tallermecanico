@@ -1,0 +1,13 @@
+Botón olvidó su contraseña? 
+tabla producto
+Factura desmembrada por producto
+
+Mensaje de error al fallar el login
+
+correo para verificar cuenta
+poder imprimir factura
+
+Nombre de usuario logueado (Implementación del nombre de usuario en la cabecera con Spring)
+<div sec:authentication=”name”></div>
+<div th:text=”${#authentication.name}”></div>
+
