@@ -1,4 +1,4 @@
-Botón olvidó su contraseña? 
+Botï¿½n olvidï¿½ su contraseï¿½a? 
 tabla producto
 Factura desmembrada por producto
 
@@ -7,7 +7,72 @@ Mensaje de error al fallar el login
 correo para verificar cuenta
 poder imprimir factura
 
-Nombre de usuario logueado (Implementación del nombre de usuario en la cabecera con Spring)
-<div sec:authentication=”name”></div>
-<div th:text=”${#authentication.name}”></div>
+Mejorar validaciones para evitar ataques
 
+Nombre de usuario logueado (Implementaciï¿½n del nombre de usuario en la cabecera con Spring)
+<div sec:authentication=ï¿½nameï¿½></div>
+<div th:text=ï¿½${#authentication.name}ï¿½></div>
+
+Para el update creamos un check al lado de la lista, y cuando le de a actualizar se vaya a un formulario de modificaciï¿½n.
+
+	
+					<li sec:authorize="isAuthenticated()"></li>
+					<li sec:authorize="isAuthenticated()"></li>
+
+					
+					
+					<ul class="nav navbar-nav navbar-right">
+					
+					<li sec:authorize="isAuthenticated()" class="dropdown"><a
+						href="#" class="dropdown-toggle" data-toggle="dropdown"
+						role="button" aria-haspopup="true" aria-expanded="false"> <span
+							th:text="${#authentication.name}">Menï¿½</span> <span class="caret"></span>
+					</a>
+						<ul class="dropdown-menu">
+							<li><a
+								href="javascript:document.getElementById('logoutForm').submit()">Salir</a>
+							</li>
+						</ul></li>
+				</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@Controller
+public class CorreoController {
+	@Autowired
+    private JavaMailSender sender;
+ 
+    @RequestMapping("/simpleemail")
+    @ResponseBody
+    String home() {
+        try {
+            sendEmail();
+            return "Email Sent!";
+        }catch(Exception ex) {
+            return "Error in sending email: "+ex;
+        }
+    }
+ 
+    private void sendEmail() throws Exception{
+        MimeMessage message = sender.createMimeMessage();
+        MimeMessageHelper helper = new MimeMessageHelper(message);
+         
+        helper.setTo("yeyoperez_93@hotmail.com");
+        helper.setText("El motivo de este correo es para informarle que tiene facturas pendientes con nuestro taller");
+        helper.setSubject("Facturas pendientes");
+         
+        sender.send(message);
+    }
+}

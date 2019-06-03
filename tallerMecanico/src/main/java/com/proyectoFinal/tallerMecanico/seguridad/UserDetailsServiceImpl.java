@@ -1,7 +1,6 @@
 package com.proyectoFinal.tallerMecanico.seguridad;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.User.UserBuilder;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -27,9 +26,9 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 			builder.disabled(false);
 			builder.password(usuario.getPassword());
 			if (usuario.getPermisos().equals("A")) {
-				builder.authorities(new SimpleGrantedAuthority("ROLE_ADMIN"));
+				builder.roles("ADMIN");
 			} else if (usuario.getPermisos().equals("U")) {
-				builder.authorities(new SimpleGrantedAuthority("ROLE_USER"));
+				builder.roles("USER");
 			}
 		} else {
 			throw new UsernameNotFoundException("Usuario no encontrado");

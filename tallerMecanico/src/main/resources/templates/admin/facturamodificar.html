@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<head th:replace="public/cabecera :: header">
+<body>
+
+	<div class="container-fluid">
+		<header th:replace="public/principiobody :: principiobody"></header>
+		<nav th:replace="public/navbaradmin :: navegadoradmin"></nav>
+		<div class="row">
+			<div class="col-md-offset-2 col-md-8">
+				<form method="post" enctype="multipart/form-data" action="#"
+					th:action="@{/admin/nuevafactura}" th:object="${facturaForm}">
+					<h1
+						th:text="${facturaForm.id_factura != 0} ? 'Editar factura' : 'Nueva factura'">Editar
+						factura</h1>
+					<div class="form-group">
+						<input type="hidden" id="id_factura" name="id" required="required"
+							th:field="*{id_factura}" />
+					</div>
+					<div class="form-group">
+						<label for="descripcion" class="col-md-3 control-label">Descripción:</label>
+						<textarea class="form-control" name="descripcion" id="descripcion" required="required"
+							placeholder="Descripcion" th:field="*{descripcion}"></textarea>
+					</div>
+					<div class="form-group">
+						<label for="importe" class="col-md-3 control-label">Importe:</label>
+						<input type="number" step="0.01" class="form-control" name="importe" required="required"
+							id="importe" placeholder="Importe" th:field="*{importe}">
+					</div>
+					<div class="form-group">
+						<label for="id_usuario" class="col-md-3 control-label">Usuario:</label>
+						<select class="form-control" name="id_usuario">
+							<option th:field="*{id_usuario}" th:each="usuario : ${usuarios}"
+								th:text="${usuario.nombre}" th:value="${usuario.id_usuario}"></option>
+						</select>
+					</div>
+					<div class="form-group">
+						<label for="id_coche" class="col-md-3 control-label">Coche:</label>
+						<select class="form-control" name="id_coche">
+							<option th:field="*{id_coche}" th:each="coche : ${coches}"
+								th:text="${coche.matricula}" th:value="${coche.id_coche}"></option>
+						</select>
+					</div>
+					<div class="form-group">
+						<label for="pagada" class="col-md-3 control-label">Pagada:</label>
+						<select name="pagada" th:field="*{pagada}">
+							<option selected="selected" value="NO">No pagada</option>
+							<option value="SI">Pagada</option>
+						</select>
+					</div>
+					<button type="submit">Guardar factura</button>
+				</form>
+			</div>
+		</div>
+		<div th:replace="public/pie :: footer"></div>
+	</div>
+	<script src="/js/datatable.js"></script>
+</body>
+</html>

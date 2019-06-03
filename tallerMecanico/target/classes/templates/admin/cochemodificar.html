@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="public/cabecera :: header">
+<body>
+
+	<div class="container-fluid">
+		<header th:replace="public/principiobody :: principiobody"></header>
+		<nav th:replace="public/navbaradmin :: navegadoradmin"></nav>
+		<div class="row">
+			<div class="col-md-offset-2 col-md-8">
+				<form method="post" enctype="multipart/form-data" action="#"
+					th:action="@{/admin/nuevocoche}" th:object="${cocheForm}">
+					<h1
+						th:text="${cocheForm.id_coche != 0} ? 'Editar coche' : 'Nuevo coche'">Editar
+						coche</h1>
+
+					<input type="hidden" id="id_coche" name="id" th:field="*{id_coche}" />
+					<div class="form-group">
+						<label for="marca">Marca</label> <input type="text" required="required"
+							class="form-control" id="marca" placeholder="Marca"
+							th:field="*{marca}" />
+					</div>
+					<div class="form-group">
+						<label for="matricula">Matrícula</label> <input type="text" required="required"
+							class="form-control" id="matricula" placeholder="aaa-111"
+							th:field="*{matricula}" />
+					</div>
+					<div class="form-group">
+						<label for="modelo">modelo</label> <input type="text" required="required"
+							class="form-control" id="modelo" placeholder="Modelo"
+							th:field="*{modelo}" />
+					</div>
+					<button type="submit" class="btn btn-default">Enviar</button>
+				</form>
+			</div>
+		</div>
+		<div th:replace="public/pie :: footer"></div>
+	</div>
+	<script src="/js/datatable.js"></script>
+</body>
+</html>

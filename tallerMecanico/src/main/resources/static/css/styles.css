@@ -1,14 +1,31 @@
 @charset "UTF-8";
 
+header{
+	background: #ED971B;	
+	color: rgba(0, 0, 0, 0.76);
+	widht: 100%;
+	eight: 500px;
+	top: 0;
+}
 
-body{
-	background:rgba(0, 0, 0, 0.76);
-	
-}
-td{
-	color: grey;
+footer {
+    bottom: 0;
+    width: 100%;
+    height: 60px;
+    line-height: 60px;
+    background:rgba(0, 0, 0, 1);
+    color: white;
 }
 
-td{
-	color: grey;
+input:focus:invalid {
+  outline: none;
 }
+
+input[type=text],
+input[type=email],
+input[type=number],
+textarea,
+fieldset {
+/* requerido para estilizar adecuadamente elementos
+   de formulario en navegadores basados en WebKit */
+  -webkit-appearance: none;

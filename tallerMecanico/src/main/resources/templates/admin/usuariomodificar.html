@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="public/cabecera :: header">
+<body>
+
+	<div class="container-fluid">
+		<header th:replace="public/principiobody :: principiobody"></header>
+		<nav th:replace="public/navbaradmin :: navegadoradmin"></nav>
+		<div class="row">
+
+			<div class="col-md-offset-2 col-md-8">
+
+				<form method="post" enctype="multipart/form-data" action="#"
+					th:action="@{/admin/nuevousuario}" th:object="${usuarioForm}">
+					<h1
+						th:text="${usuarioForm.id_usuario != 0} ? 'Editar usuario' : 'Nuevo usuario'">Editar
+						usuario</h1>
+
+					<input type="hidden" id="id_usuario" name="id"
+						th:field="*{id_usuario}" />
+					<div class="form-group">
+						<label for="nombre">Nombre</label> <input type="text" required="required"
+							class="form-control" id="nombre" placeholder="Nombre"
+							th:field="*{nombre}"  />
+					</div>
+					<div class="form-group">
+						<label for="apellido">Apellidos</label> <input type="text" required="required"
+							class="form-control" id="apellido" placeholder="Apellido"
+							th:field="*{apellidos}" />
+					</div>
+					<div class="form-group">
+						<label for="email">Email</label> <input type="email" required="required"
+							class="form-control" id="email" placeholder="Email"
+							th:field="*{email}" />
+					</div>
+					<div class="form-group">
+						<label for="password">Password</label> <input type="password" required="required"
+							class="form-control" name="password" placeholder="Password"
+							th:field="*{password}">
+					</div>
+					<div class="form-group">
+						<label for="permisos">Permisos</label> <select name="permisos"
+							th:field="*{permisos}">
+							<option selected="selected" value="U">Usuario</option>
+							<option value="A">Administrador</option>
+						</select>
+					</div>
+
+					<button type="submit" class="btn btn-default">Enviar</button>
+				</form>
+			</div>
+		</div>
+		<div th:replace="public/pie :: footer"></div>
+	</div>
+	<script src="/js/datatable.js"></script>
+</body>
+</html>

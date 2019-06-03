@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head th:replace="public/cabecera :: header">
+<body>
+<div class="container-fluid">
+	<header th:replace="public/principiobody :: principiobody"></header>
+	<nav th:replace="public/navbaradmin :: navegadoradmin"></nav>
+	
+	<div class="table-responsive">
+			<table id=tablatodaslasfacturas class="display">
+				<thead>
+					<tr>
+						<th>Fecha</th>
+						<th>Descripción</th>
+						<th>Importe</th>
+						<th>Pagada</th>
+						<th>Coche</th>
+						<th>Usuario</th>
+						<th>Utilidades</th>
+					</tr>
+				</thead>
+				<tfoot>
+					<tr>
+						<th>Fecha</th>
+						<th>Descripción</th>
+						<th>Importe</th>
+						<th>Pagada</th>
+						<th>Coche</th>
+						<th>Usuario</th>
+						<th>Utilidades</th>
+					</tr>
+				</tfoot>
+			</table>
+		</div>
+		<div th:replace="public/pie :: footer"></div>
+	</div>
+	<script src="/js/datatable.js"></script>
+</body>
+</html>

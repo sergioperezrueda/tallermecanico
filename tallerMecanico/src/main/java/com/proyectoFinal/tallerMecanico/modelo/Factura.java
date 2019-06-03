@@ -1,5 +1,6 @@
 package com.proyectoFinal.tallerMecanico.modelo;
 
+
 import java.util.Date;
 
 import javax.persistence.Entity;
@@ -11,16 +12,14 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 @Entity
 @EntityListeners(AuditingEntityListener.class)
 public class Factura {
-
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id_factura;
+	private Integer id_factura;
 
 	@ManyToOne
 	private Usuario id_usuario;
@@ -28,7 +27,7 @@ public class Factura {
 	@ManyToOne
 	private Coche id_coche;
 
-	@CreatedDate
+	//@CreatedDate
 	//@Temporal(TemporalType.TIMESTAMP) PARA FECHA Y HORA
 	@Temporal(TemporalType.DATE)
 	private Date fecha;
@@ -36,13 +35,15 @@ public class Factura {
 	private String descripcion;
 	private float importe;
 	private String pagada;
-
+	
 	public Factura() {
 
 	}
+	
+	
 
-	public Factura(int id_factura, Usuario id_usuario, Coche id_coche, Date fecha, String descripcion, float importe,
-			String pagada) {
+	public Factura(Integer id_factura, Usuario id_usuario, Coche id_coche, Date fecha, String descripcion,
+			float importe, String pagada) {
 		super();
 		this.id_factura = id_factura;
 		this.id_usuario = id_usuario;
@@ -53,11 +54,13 @@ public class Factura {
 		this.pagada = pagada;
 	}
 
-	public int getId_factura() {
+
+
+	public Integer getId_factura() {
 		return id_factura;
 	}
 
-	public void setId_factura(int id_factura) {
+	public void setId_factura(Integer id_factura) {
 		this.id_factura = id_factura;
 	}
 
@@ -109,7 +112,7 @@ public class Factura {
 		this.pagada = pagada;
 	}
 
-	
+
 
 	@Override
 	public int hashCode() {
@@ -118,12 +121,14 @@ public class Factura {
 		result = prime * result + ((descripcion == null) ? 0 : descripcion.hashCode());
 		result = prime * result + ((fecha == null) ? 0 : fecha.hashCode());
 		result = prime * result + ((id_coche == null) ? 0 : id_coche.hashCode());
-		result = prime * result + id_factura;
+		result = prime * result + ((id_factura == null) ? 0 : id_factura.hashCode());
 		result = prime * result + ((id_usuario == null) ? 0 : id_usuario.hashCode());
 		result = prime * result + Float.floatToIntBits(importe);
 		result = prime * result + ((pagada == null) ? 0 : pagada.hashCode());
 		return result;
 	}
+
+
 
 	@Override
 	public boolean equals(Object obj) {
@@ -149,7 +154,10 @@ public class Factura {
 				return false;
 		} else if (!id_coche.equals(other.id_coche))
 			return false;
-		if (id_factura != other.id_factura)
+		if (id_factura == null) {
+			if (other.id_factura != null)
+				return false;
+		} else if (!id_factura.equals(other.id_factura))
 			return false;
 		if (id_usuario == null) {
 			if (other.id_usuario != null)
@@ -166,11 +174,16 @@ public class Factura {
 		return true;
 	}
 
+
+
 	@Override
 	public String toString() {
 		return "Factura [id_factura=" + id_factura + ", id_usuario=" + id_usuario + ", id_coche=" + id_coche
 				+ ", fecha=" + fecha + ", descripcion=" + descripcion + ", importe=" + importe + ", pagada=" + pagada
 				+ "]";
 	}
+	
+	
+
 
 }

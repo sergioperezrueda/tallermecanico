@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<body>
+	<nav th:fragment="navegadoradmin" class="navbar navbar-inverse">
+		<div class="container-fluid">
+			<ul class="nav navbar-nav">
+				<li class="dropdown"><a href="#" class="dropdown-toggle"
+					data-toggle="dropdown">Facturas <span class="caret"></span></a>
+					<ul class="dropdown-menu" role="menu">
+						<li><a th:href="@{/admin/facturasplantilla}">Ver facturas</a></li>
+						<li><a th:href="@{/admin/formulariofacturanueva}">Crear factura</a></li>
+					</ul></li>
+				<li class="dropdown"><a href="#" class="dropdown-toggle"
+					data-toggle="dropdown">Coches <span class="caret"></span></a>
+					<ul class="dropdown-menu" role="menu">
+						<li><a th:href="@{/admin/cochesplantilla}">Ver coches</a></li>
+						<li><a th:href="@{/admin/formulariocochenuevo}">Crear coche</a></li>
+					</ul>
+				<li class="dropdown"><a href="#" class="dropdown-toggle"
+					data-toggle="dropdown">Usuarios <span class="caret"></span></a>
+					<ul class="dropdown-menu" role="menu">
+						<li><a th:href="@{/admin/usuariosplantilla}">Ver usuarios</a></li>
+						<li><a th:href="@{/admin/formulariousuarionuevo}">Crear usuario</a></li>
+					</ul></li>
+			</ul>
+			<ul class="nav navbar-nav navbar-right">
+				<li><a
+					href="javascript:document.getElementById('logoutForm').submit()">Salir</a>
+				</li>
+			</ul>
+		</div>
+	</nav>
+</body>
+</html>

@@ -13,7 +13,7 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 public class Coche {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id_coche;
+	private Integer id_coche;
 	
 	private String matricula;
 	private String marca;
@@ -24,9 +24,9 @@ public class Coche {
 		
 		
 	}
-	
-	
-	public Coche(int id_coche, String matricula, String marca, String modelo) {
+
+
+	public Coche(Integer id_coche, String matricula, String marca, String modelo) {
 		super();
 		this.id_coche = id_coche;
 		this.matricula = matricula;
@@ -35,12 +35,12 @@ public class Coche {
 	}
 
 
-	public int getId_coche() {
+	public Integer getId_coche() {
 		return id_coche;
 	}
 
 
-	public void setId_coche(int id_coche) {
+	public void setId_coche(Integer id_coche) {
 		this.id_coche = id_coche;
 	}
 
@@ -79,7 +79,7 @@ public class Coche {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + id_coche;
+		result = prime * result + ((id_coche == null) ? 0 : id_coche.hashCode());
 		result = prime * result + ((marca == null) ? 0 : marca.hashCode());
 		result = prime * result + ((matricula == null) ? 0 : matricula.hashCode());
 		result = prime * result + ((modelo == null) ? 0 : modelo.hashCode());
@@ -96,7 +96,10 @@ public class Coche {
 		if (getClass() != obj.getClass())
 			return false;
 		Coche other = (Coche) obj;
-		if (id_coche != other.id_coche)
+		if (id_coche == null) {
+			if (other.id_coche != null)
+				return false;
+		} else if (!id_coche.equals(other.id_coche))
 			return false;
 		if (marca == null) {
 			if (other.marca != null)
@@ -122,7 +125,6 @@ public class Coche {
 		return "Coche [id_coche=" + id_coche + ", matricula=" + matricula + ", marca=" + marca + ", modelo=" + modelo
 				+ "]";
 	}
-	
 	
 	
 	

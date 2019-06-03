@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<body>
+	<div>
+		<header th:fragment="principiobody" id="main-header">
+			<div class="row">
+				<div class="col-md-6 float-left">
+					<img class="img-responsive" src="/img/logo.png"
+						style="width: auto; height: auto;"
+						alt="Logo de AstiRueda en cabecera">
+				</div>
+				<div class="col-md-6 float-right">
+					<br> <br>
+					<h1>AstiRueda</h1>
+					<p th:text="'Bienvenido ' + ${#authentication.name}"></p>
+				</div>
+			</div>
+		</header>
+	</div>
+</body>
+</html>

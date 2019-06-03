@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+    xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<body>
+    <div th:fragment="footer">
+        <footer style="position: absolute; bottom: 0; height: 60 px; line-height: 60px" class="footer bg-faded w-100">
+        </footer>
+        <div class="container">
+                <form th:action="@{/auth/logout}" method="POST" id="logoutForm"></form>
+            <div class="row">
+                <div class="col-sm-12">@2019 Taller AstiRueda</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

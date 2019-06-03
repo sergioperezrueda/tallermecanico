@@ -30,17 +30,18 @@ public class SeguridadConfiguracion extends WebSecurityConfigurerAdapter {
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		http.authorizeRequests().antMatchers("/", "/webjars/**", "/css/**", "/public/**", "/auth/**", "/files/**")
-				.permitAll().anyRequest().authenticated().and().formLogin().loginPage("/auth/login")
-				.defaultSuccessUrl("/public/index", true).loginProcessingUrl("/auth/login-post").permitAll().and()
-				.logout().logoutUrl("/auth/logout").logoutSuccessUrl("/public/index");
+		http.authorizeRequests().antMatchers("/", "/webjars/**", "/css/**", "/auth/**", "/files/**", "/img/**").permitAll()
+				.antMatchers("/usuario/**").access("hasRole('ROLE_USER')")
+				.antMatchers("/admin/**").access("hasRole('ROLE_ADMIN')")
+				.anyRequest().authenticated()
+				.and()
+				.formLogin().loginPage("/auth/login").defaultSuccessUrl("/default", true)
+				.loginProcessingUrl("/auth/login-post").permitAll().and().logout().logoutUrl("/auth/logout")
+				.logoutSuccessUrl("/auth/login");
 
 		http.csrf().disable();
 		http.headers().frameOptions().disable();
 
-		/*
-		 * .antMatchers("/app").hasAuthority("Admin")
-		 * .antMatchers("/usuarios").hasAuthority("User")
-		 */
 	}
+
 }

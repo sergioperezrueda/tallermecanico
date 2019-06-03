@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<head th:replace="public/cabecera :: header"></head>
+</head>
+
+<body>
+	<div class="container-fluid">
+		<header th:replace="public/principiobody :: principiobody"></header>
+		<nav th:replace="public/navbarusuario :: navegadorusuario"></nav>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-2">
+					<strong>Factura:</strong><p th:text="${factura.id_factura}"></p>
+				</div>
+				<div class="col-md-2">
+					<strong>Fecha:</strong><p th:text="${factura.fecha}"></p>
+				</div>
+				<div class="col-md-2">
+					<strong>Importe</strong><p th:text="${factura.importe}"></p>
+				</div>
+				<div class="col-md-2">
+					<strong>Pagada:</strong><p th:text="${factura.pagada}"></p>
+				</div>
+				<div class="col-md-2">
+					<strong>Coche:</strong><p th:text="${factura.id_coche.matricula}"></p>
+				</div>
+				<div class="col-md-12">
+					<strong>Detalles</strong><p th:text="${factura.descripcion}"></p>
+				</div>
+			</div>
+
+		</div>
+		<div th:replace="public/pie :: footer"></div>
+	</div>
+
+
+</body>

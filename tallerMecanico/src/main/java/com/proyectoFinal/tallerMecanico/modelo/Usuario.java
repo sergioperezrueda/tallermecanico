@@ -15,7 +15,7 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 public class Usuario {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id_usuario;
+	private Integer id_usuario;
 
 	private String nombre;
 	private String apellidos;
@@ -27,9 +27,10 @@ public class Usuario {
 
 	public Usuario() {
 
-	};
+	}
 
-	public Usuario(int id_usuario, String nombre, String apellidos, String email, String password, String permisos) {
+	public Usuario(Integer id_usuario, String nombre, String apellidos, String email, String password,
+			String permisos) {
 		super();
 		this.id_usuario = id_usuario;
 		this.nombre = nombre;
@@ -39,11 +40,11 @@ public class Usuario {
 		this.permisos = permisos;
 	}
 
-	public int getId_usuario() {
+	public Integer getId_usuario() {
 		return id_usuario;
 	}
 
-	public void setId_usuario(int id_usuario) {
+	public void setId_usuario(Integer id_usuario) {
 		this.id_usuario = id_usuario;
 	}
 
@@ -93,7 +94,7 @@ public class Usuario {
 		int result = 1;
 		result = prime * result + ((apellidos == null) ? 0 : apellidos.hashCode());
 		result = prime * result + ((email == null) ? 0 : email.hashCode());
-		result = prime * result + id_usuario;
+		result = prime * result + ((id_usuario == null) ? 0 : id_usuario.hashCode());
 		result = prime * result + ((nombre == null) ? 0 : nombre.hashCode());
 		result = prime * result + ((password == null) ? 0 : password.hashCode());
 		result = prime * result + ((permisos == null) ? 0 : permisos.hashCode());
@@ -119,7 +120,10 @@ public class Usuario {
 				return false;
 		} else if (!email.equals(other.email))
 			return false;
-		if (id_usuario != other.id_usuario)
+		if (id_usuario == null) {
+			if (other.id_usuario != null)
+				return false;
+		} else if (!id_usuario.equals(other.id_usuario))
 			return false;
 		if (nombre == null) {
 			if (other.nombre != null)
@@ -142,8 +146,8 @@ public class Usuario {
 	@Override
 	public String toString() {
 		return "Usuario [id_usuario=" + id_usuario + ", nombre=" + nombre + ", apellidos=" + apellidos + ", email="
-				+ email + ", password=" + password +"  " +permisos +"]";
-	}
+				+ email + ", password=" + password + ", permisos=" + permisos + "]";
+	};
 	
 	
 
