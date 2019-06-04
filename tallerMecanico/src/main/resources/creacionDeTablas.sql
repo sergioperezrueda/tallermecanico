@@ -9,8 +9,11 @@ SET GLOBAL time_zone = '-3:00';
 
 
 */
-/*USUARIO ADMINISTRADOR*/
+/*USUARIO ADMINISTRADOR PASS: admin*/
+INSERT INTO `usuario` (`id_usuario`, `nombre`, `apellidos`, `email`, `password`, `permisos`) VALUES (NULL, 'Admin', 'Admin', 'admin@admin', '$2a$10$I5wPBGyotfTjX7XfuAg4r.s3e3/MG4egcr9cK4R7QKzTt3cc/Jqn2', 'A')
+/*USUARIO USUARIO PASS: usuario*/
 INSERT INTO `usuario` (`id_usuario`, `nombre`, `apellidos`, `email`, `password`, `permisos`) VALUES (NULL, 'usuario', 'usuario', 'usuario@hotmail.com', '$2a$10$rG9EutsdZa4EGjVhmsUdruiq8x4u9GTEeuBBEs9mHFrSwz3NvvQfm', 'U');
+
 
 
 CREATE TABLE IF NOT EXISTS USUARIO (
