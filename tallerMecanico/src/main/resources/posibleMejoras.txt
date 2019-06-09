@@ -1,8 +1,14 @@
+﻿
+
+
+Mensaje de error al fallar el login
+Plantilla para error 404 o diferentes errores
+Mejorar validaciones para evitar ataques
+facturas entrantes y salientes
+poder imprimir factura
 Bot�n olvid� su contrase�a? 
 tabla producto
 Factura desmembrada por producto
-Mensaje de error al fallar el login
-Plantilla para error 404 o diferentes errores
 correo para verificar cuenta
-poder imprimir factura
-Mejorar validaciones para evitar ataques
+tabla producto
+Tabla proveedores

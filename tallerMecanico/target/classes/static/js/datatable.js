@@ -4,6 +4,9 @@ $(document)
 					var tableCoche = $('#tablacoche')
 							.DataTable(
 									{
+										"language" : {
+											"url" : "//cdn.datatables.net/plug-ins/1.10.16/i18n/Spanish.json"
+										},
 										"sAjaxSource" : "/admin/coche",
 										"bInfo" : false,
 										"sAjaxDataProp" : "",
@@ -34,6 +37,9 @@ $(document)
 					var tableIndexUsuario = $('#tablafacturausuarios')
 							.DataTable(
 									{
+										"language" : {
+											"url" : "//cdn.datatables.net/plug-ins/1.10.16/i18n/Spanish.json"
+										},
 										"sAjaxSource" : "/usuario/usuario",
 										"bInfo" : false,
 										"sAjaxDataProp" : "",
@@ -65,6 +71,9 @@ $(document)
 					var tableIndexFacturas = $('#tablatodaslasfacturas')
 							.DataTable(
 									{
+										"language" : {
+											"url" : "//cdn.datatables.net/plug-ins/1.10.16/i18n/Spanish.json"
+										},
 										"sAjaxSource" : "/admin/factura",
 										"bInfo" : false,
 										"sAjaxDataProp" : "",
@@ -106,6 +115,9 @@ $(document)
 					var tableUsuarios = $('#tablatodoslosusuarios')
 							.DataTable(
 									{
+										"language" : {
+											"url" : "//cdn.datatables.net/plug-ins/1.10.16/i18n/Spanish.json"
+										},
 										"sAjaxSource" : "/admin/usuario",
 										"bInfo" : false,
 										"sAjaxDataProp" : "",

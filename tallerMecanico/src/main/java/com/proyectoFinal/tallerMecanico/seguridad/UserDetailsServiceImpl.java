@@ -33,9 +33,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 		} else {
 			throw new UsernameNotFoundException("Usuario no encontrado");
 		}
-
 		return builder.build();
-
 	}
 
 }

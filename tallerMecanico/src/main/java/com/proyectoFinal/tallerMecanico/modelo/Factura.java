@@ -1,8 +1,6 @@
 package com.proyectoFinal.tallerMecanico.modelo;
 
-
 import java.util.Date;
-
 import javax.persistence.Entity;
 import javax.persistence.EntityListeners;
 import javax.persistence.GeneratedValue;
@@ -27,20 +25,16 @@ public class Factura {
 	@ManyToOne
 	private Coche id_coche;
 
-	//@CreatedDate
-	//@Temporal(TemporalType.TIMESTAMP) PARA FECHA Y HORA
 	@Temporal(TemporalType.DATE)
 	private Date fecha;
 
 	private String descripcion;
 	private float importe;
 	private String pagada;
-	
+
 	public Factura() {
 
 	}
-	
-	
 
 	public Factura(Integer id_factura, Usuario id_usuario, Coche id_coche, Date fecha, String descripcion,
 			float importe, String pagada) {
@@ -53,8 +47,6 @@ public class Factura {
 		this.importe = importe;
 		this.pagada = pagada;
 	}
-
-
 
 	public Integer getId_factura() {
 		return id_factura;
@@ -112,8 +104,6 @@ public class Factura {
 		this.pagada = pagada;
 	}
 
-
-
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -127,8 +117,6 @@ public class Factura {
 		result = prime * result + ((pagada == null) ? 0 : pagada.hashCode());
 		return result;
 	}
-
-
 
 	@Override
 	public boolean equals(Object obj) {
@@ -174,16 +162,11 @@ public class Factura {
 		return true;
 	}
 
-
-
 	@Override
 	public String toString() {
 		return "Factura [id_factura=" + id_factura + ", id_usuario=" + id_usuario + ", id_coche=" + id_coche
 				+ ", fecha=" + fecha + ", descripcion=" + descripcion + ", importe=" + importe + ", pagada=" + pagada
 				+ "]";
 	}
-	
-	
-
 
 }

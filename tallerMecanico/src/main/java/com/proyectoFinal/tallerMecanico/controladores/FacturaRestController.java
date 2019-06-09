@@ -15,11 +15,11 @@ public class FacturaRestController {
 	@Autowired
 	FacturaService facturaServicio;
 	@RequestMapping(path="/admin/factura", method=RequestMethod.GET)
-	public List<Factura> conseguirTodosLosCoches(){
+	public List<Factura> conseguirTodasLasFacturas(){
 		return facturaServicio.findAll();
 	}
     @RequestMapping(value = "/admin/factura/{id}", method = RequestMethod.GET)
-	public Factura conseguirCochePorId(@PathVariable("id") Integer id){
+	public Factura conseguirFacturaPorId(@PathVariable("id") Integer id){
 		return facturaServicio.findByIdFactura(id);
 	}
 

@@ -22,16 +22,9 @@ public class ZonaUsuarioController {
 	UsuarioService usuarioServicio;
 
 	public Usuario usuario;
-//
-//	@ModelAttribute("misfacturas")
-//	public List<Factura> misFacturas() {
-//		String email = SecurityContextHolder.getContext().getAuthentication().getName();
-//		usuario = usuarioServicio.buscarPorEmail(email);
-//		return facturaServicio.facturasDeUnUsuario(usuario);
-//	}
 
 	@RequestMapping(path = "/usuario/indexusuario", method = RequestMethod.GET)
-	public String conseguirTodosLosUsuarios() {
+	public String conseguirTodasMisFacturas() {
 		return "usuario/indexusuario";
 	}
 

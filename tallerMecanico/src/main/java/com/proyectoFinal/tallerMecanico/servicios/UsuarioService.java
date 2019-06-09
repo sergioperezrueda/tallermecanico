@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import com.proyectoFinal.tallerMecanico.modelo.Factura;
 import com.proyectoFinal.tallerMecanico.modelo.Usuario;
 import com.proyectoFinal.tallerMecanico.repositorios.UsuarioRepository;
 
@@ -34,18 +33,5 @@ public class UsuarioService {
 	
 	public Usuario findByIdUsuario(Integer id) {
 		return repositorio.findById(id).orElse(null);
-	}
-	
-//	public List<Usuario> buscarPorNombreApellidosEmailOPermisos(String condicion, String filtrado) {
-//		if (filtrado != null) {
-//			if (filtrado.equals("matricula")) {
-//				return repositorio.findByMatriculaContainsIgnoreCase(condicion);
-//			} else if (filtrado.equals("modelo")) {
-//				return repositorio.findByModeloContainsIgnoreCase(condicion);
-//			} else if (filtrado.equals("marca")) {
-//				return repositorio.findByMarcaContainsIgnoreCase(condicion);
-//			}
-//		}
-		
-		
+	}	
 }

@@ -23,7 +23,7 @@ public class UsuarioController {
 	UsuarioService usuarioServicio;
 
 	@RequestMapping(path = "/admin/usuariosplantilla", method = RequestMethod.GET)
-	public String conseguirTodosLosCoches() {
+	public String conseguirTodosLosUsuarios() {
 		return "admin/usuariosplantilla";
 	}
 

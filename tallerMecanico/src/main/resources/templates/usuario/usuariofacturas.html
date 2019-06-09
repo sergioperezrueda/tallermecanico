@@ -11,8 +11,8 @@
 		<nav th:replace="public/navbarusuario :: navegadorusuario"></nav>
 		<div class="container">
 			<div class="row">
-				<div class="col-md-2">
-					<strong>Factura:</strong><p th:text="${factura.id_factura}"></p>
+				<div class="col-md-12">
+					<h3 th:text="Factura + ' ' +número + ' ' + ${factura.id_factura}"></h3>
 				</div>
 				<div class="col-md-2">
 					<strong>Fecha:</strong><p th:text="${factura.fecha}"></p>
